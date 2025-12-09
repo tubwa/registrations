@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>United Banjara Grand Christmas 2025</title>
+<style>
+  /* ============ THEME ============ */
+  :root{
+    --bg-1:#cd3838;
+    --bg-2:#0d1324;
+    --glass:rgba(17,24,39,.55);
+    --border:rgba(255,255,255,.08);
+    --text:#e6e9ef;
+    --muted:#9aa3b2;
+    --accent:#7c3aed;
+    --accent-2:#22c55e;
+    --accent-3:#3b82f6;
+    --error:#ef4444;
+    --ring: 0 0 0 .2rem rgba(124,58,237,.35);
+    --radius:18px;
+    --shadow-lg:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 700px at 10% -10%, #101831 0%, transparent 60%),
+      radial-gradient(900px 600px at 110% 10%, #0a1228 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
+    overflow-x:hidden;
+  }
+
+  .container{max-width:720px;margin:clamp(16px,5vh,56px) auto;padding:0 18px; position:relative}
+
+  /* Language toggle */
+  .lang-switch {
+    position:absolute; top:18px; right:18px; display:inline-flex; gap:8px; z-index:10;
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    padding:6px; border-radius:12px; border:1px solid var(--border);
+  }
+  .lang-btn{
+    appearance:none; border:0; background:transparent; color:var(--muted);
+    padding:8px 10px; border-radius:10px; cursor:pointer; font-weight:700;
+  }
+  .lang-btn[aria-pressed="true"]{ color:var(--text); background:linear-gradient(90deg,var(--accent),var(--accent-3)); box-shadow:0 6px 20px rgba(124,58,237,.18) }
+
+  /* Background sparkles */
+  .sparkles{
+    position:fixed; inset:0; pointer-events:none; z-index:-3;
+    background:
+      radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.25) 50%, transparent 52%) repeat,
+      radial-gradient(2px 2px at 70% 30%, rgba(255,255,255,.25) 50%, transparent 52%) repeat,
+      radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,.2) 50%, transparent 52%) repeat;
+    background-size:180px 220px, 220px 260px, 200px 200px;
+    animation: twinkle 6s linear infinite;
+    opacity:.6;
+  }
+  @keyframes twinkle{0%{filter:brightness(1)}50%{filter:brightness(1.4)}100%{filter:brightness(1)}}
+
+  /* Cards */
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    backdrop-filter:saturate(120%) blur(10px);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    padding:28px;
+  }
+
+  h1{margin:0 0 10px;font-size:clamp(2rem,4vw,2.8rem)}
+  h2{margin:0 0 6px;font-size:clamp(1.4rem,3vw,1.8rem)}
+  .lead{color:#d1d6df;margin:6px 0 16px;text-align:center}
+
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px}
+  .btn{
+    appearance:none;border:1px solid rgba(255,255,255,.12);
+    padding:14px 22px;border-radius:14px;cursor:pointer;font-weight:700;
+    color:#fff;background:
+      radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.15), transparent 60%),
+      linear-gradient(90deg, var(--accent) 0%, #5b21b6 50%, var(--accent) 100%);
+    background-size:200% 100%;
+    transition:transform .06s ease, filter .2s ease, background-position .6s ease;
+    box-shadow:0 8px 30px rgba(124,58,237,.35);
+  }
+  .btn:hover{filter:brightness(1.08); background-position:100% 0}
+  .btn:active{transform:translateY(1px)}
+  .btn-secondary{
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+    color:var(--text); box-shadow:none;
+  }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 12px; border-radius:999px; border:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    color:#dfe6f2; font-weight:600; letter-spacing:.2px;
+  }
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 10px var(--accent-2)}
+
+  .view{display:none;animation:.28s ease fadein}
+  .view.active{display:block}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Single-column form */
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:1fr !important;}
+
+  label{display:block;margin:0 0 6px;font-weight:700}
+  .field{position:relative;margin-bottom:8px}
+  .input{
+    width:100%;padding:14px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(8,14,28,.7);
+    color:var(--text);
+    outline:none;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .input:focus{border-color:#9d7dff;box-shadow:var(--ring)}
+  .input::placeholder{color:#6f7a8b}
+  .error{display:block;color:#ef4444;font-size:.85rem;min-height:1.1em;margin-top:6px}
+  .hint{display:block;color:#9aa3b2;font-size:.85rem;margin-top:6px}
+
+  .attendees-wrap{margin-top:10px}
+  .attendee{border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border-radius:14px;padding:12px}
+  .attendee h3{margin:0 0 8px;font-size:1rem;color:#e2e8f0}
+
+  .steps{display:flex;gap:8px;margin-bottom:14px}
+  .step{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.12)}
+  .step.fill{background:linear-gradient(90deg,var(--accent),var(--accent-3))}
+
+  .line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:12px 0}
+
+  /* Thank You centered */
+  #view-thanks{
+    position:fixed;
+    left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    width:min(700px,90%);
+    text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    padding:40px 28px;
+    z-index:2;
+  }
+  #view-thanks .actions{justify-content:center}
+
+  /* Layers: festive behind cards, confetti behind everything */
+  #festive{position:fixed; inset:0; pointer-events:none; z-index:-2}
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:-4}
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .view{animation:none}
+    .btn{transition:none}
+    .sparkles{animation:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="festive"></canvas>
+<canvas id="confetti"></canvas>
+<div class="sparkles"></div>
+
+<main class="container">
+
+  <!-- ========== LANGUAGE TOGGLE ========== -->
+  <div class="lang-switch" aria-hidden="false">
+    <button id="lang-en" class="lang-btn" aria-pressed="true">EN</button>
+    <button id="lang-te" class="lang-btn" aria-pressed="false">తెలుగు</button>
+  </div>
+
+  <!-- ========== WELCOME ========== -->
+  <section id="view-welcome" class="view card active" aria-labelledby="welcomeTitle">
+    <div class="pill" style="margin-bottom:12px" data-i="orgName"><span class="dot"></span> Telangana United Banjara Welfare Association</div>
+    <h1 id="welcomeTitle" style="text-align:center" data-i="title">United Banjara Grand Christmas 2025</h1>
+    <p class="lead" data-i="lead">Join us for a day of joy, carols, community, and celebration.</p>
+    <div class="line"></div>
+    <div class="actions">
+      <button id="btnStart" class="btn" data-i="registerBtn">Register Now</button>
+      <button id="btnInfo" class="btn btn-secondary" title="Event Info" data-i="infoBtn">Event Info</button>
+    </div>
+  </section>
+
+  <!-- ========== FORM ========== -->
+  <section id="view-form" class="view card" aria-labelledby="formTitle">
+    <div class="steps" aria-hidden="true">
+      <div class="step fill"></div><div class="step fill"></div><div class="step"></div>
+    </div>
+    <h2 id="formTitle" style="text-align:center" data-i="formTitle">Event Registration</h2>
+    <p class="lead" data-i="formLead">Please fill in your details below.</p>
+
+    <form id="registrationForm" novalidate>
+
+      <!-- NEW: Pastor/Believer + Pastor Name -->
+      <div class="field">
+        <label for="role" data-i="labelRole">Are you Pastor or Believer? <span>*</span></label>
+        <select class="input" id="role" name="role" required>
+          <option value="" disabled selected data-i="rolePlaceholder">-- Select --</option>
+          <option value="Pastor" data-i="rolePastor">Pastor</option>
+          <option value="Believer" data-i="roleBeliever">Believer</option>
+        </select>
+        <small class="error" id="roleError"></small>
+      </div>
+
+      <div class="field" id="referredWrap" hidden>
+        <label for="referredBy" data-i="labelReferredBy">Referred By Pastor Name</label>
+        <input class="input" id="referredBy" name="referredBy" type="text" placeholder="">
+      </div>
+      <!-- END NEW -->
+
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="fullName" data-i="labelFullName">Full Name<span>*</span></label>
+          <input class="input" id="fullName" name="fullName" type="text" placeholder=" " required minlength="2" data-i-placeholder="phFullName" />
+          <small class="error" id="fullNameError"></small>
+        </div>
+        <div class="field">
+          <label for="church" data-i="labelChurch">Church<span>*</span></label>
+          <input class="input" id="church" name="church" type="text" placeholder=" " required data-i-placeholder="phChurch"/>
+          <small class="error" id="churchError"></small>
+        </div>
+        <div class="field">
+          <label for="age" data-i="labelAge">Age (optional)</label>
+          <input class="input" id="age" name="age" type="number" min="1" max="120" placeholder=" " data-i-placeholder="phAge" />
+        </div>
+        <div class="field">
+          <label for="city" data-i="labelCity">City<span>*</span></label>
+          <input class="input" id="city" name="city" type="text" placeholder="e.g., Hyderabad" required data-i-placeholder="phCity"/>
+          <small class="error" id="cityError"></small>
+        </div>
+        <div class="field">
+          <label for="state" data-i="labelState">State<span>*</span></label>
+          <input class="input" id="state" name="state" type="text" placeholder="e.g., Telangana" required data-i-placeholder="phState"/>
+          <small class="error" id="stateError"></small>
+        </div>
+        <div class="field">
+          <label for="phone" data-i="labelPhone">Phone<span>*</span></label>
+          <input class="input" id="phone" name="phone" type="tel" placeholder="e.g., 9876543210" pattern="^[0-9]{10}$" required data-i-placeholder="phPhone"/>
+          <small class="hint" id="phoneHint" data-i="phoneHint">10 digits, numbers only</small>
+          <small class="error" id="phoneError"></small>
+        </div>
+        <div class="field">
+          <label for="email" data-i="labelEmail">Email (optional)</label>
+          <input class="input" id="email" name="email" type="email" placeholder="you@example.com" data-i-placeholder="phEmail"/>
+          <small class="error" id="emailError"></small>
+        </div>
+        <div class="field">
+          <label for="attendees" data-i="labelAttendees">No. of Attendees (optional)</label>
+          <select class="input" id="attendees" name="attendees">
+            <option value="" disabled selected data-i="attendeesPlaceholder">-- Select number of attendees --</option>
+          </select>
+          <small class="hint" id="attendeesHint" data-i="attendeesHint">Select if more than one person is attending.</small>
+        </div>
+      </div>
+
+      <div id="attendeesWrap" class="attendees-wrap" hidden>
+        <div id="attendeeList" class="grid"></div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn" data-i="submitBtn">Submit Registration</button>
+        <button type="button" id="btnBackHome" class="btn btn-secondary" data-i="backBtn">Back</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ========== THANK YOU ========== -->
+  <section id="view-thanks" class="view" aria-labelledby="thanksTitle">
+    <h2 id="thanksTitle" data-i="thanksTitle">🎉 Thank You!</h2>
+    <p class="lead" data-i="thanksLead">Your registration has been received successfully.<br/>Please collect your coupon.</p>
+
+    <div id="tokenBox" style="margin-top:18px; font-weight:700; font-size:1.05rem; text-align:center; color:#fff;">
+      <div style="opacity:.85">Your registration token:</div>
+      <div id="tokenValue" style="margin-top:8px; padding:10px 16px; border-radius:10px; display:inline-block; background:linear-gradient(90deg,#111,#222); border:1px solid rgba(255,255,255,.06); box-shadow:0 6px 20px rgba(0,0,0,.35);"></div>
+
+      <div id="attendeeTokensWrapper" style="margin-top:12px; display:none;">
+        <div style="opacity:.85">Attendee tokens:</div>
+        <div id="attendeeTokensList" style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnHome" class="btn" data-i="homeBtn">Back to Home</button>
+    </div>
+  </section>
+
+  <!-- Submitting Popup -->
+  <div id="submittingPopup" style="
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  ">
+    <div style="
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      padding: 28px 32px;
+      border-radius: 16px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    ">
+      ⏳ Submitting...
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const MAX_ATTENDEES = 50;
+  const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxWfW_QFcMVyljvHKanpue25zjH1V2ixe4XoBmRj7mYel3FO4Uc6BNpHpTYH5iefFIu/exec";
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function showSubmittingPopup(show) {
+    const pop = document.getElementById('submittingPopup');
+    pop.style.display = show ? 'flex' : 'none';
+  }
+
+  // ---------- Translations ----------
+  const STRINGS = {
+    en: {
+      langName: "English",
+      orgName: "Telangana United Banjara Welfare Association",
+      title: "United Banjara Grand Christmas 2025 🎄",
+      lead: "Join us for a day of joy, carols, community, and celebration.",
+      registerBtn: "Register Now",
+      infoBtn: "Event Info",
+      formTitle: "Event Registration",
+      formLead: "Please fill in your details below.",
+
+      labelRole: "Are you Pastor or Believer? <span>*</span>",
+      labelReferredBy: "Referred By Pastor Name",
+      rolePastor: "Pastor",
+      roleBeliever: "Believer",
+      rolePlaceholder: "-- Select --",
+
+      labelFullName: "Full Name<span>*</span>",
+      labelChurch: "Church<span>*</span>",
+      labelAge: "Age (optional)",
+      labelCity: "City<span>*</span>",
+      labelState: "State<span>*</span>",
+      labelPhone: "Phone<span>*</span>",
+      labelEmail: "Email (optional)",
+      labelAttendees: "No. of Attendees (optional)",
+      phFullName: "",
+      phChurch: "",
+      phAge: "",
+      phCity: "e.g., Hyderabad",
+      phState: "e.g., Telangana",
+      phPhone: "e.g., 9876543210",
+      phEmail: "you@example.com",
+      phoneHint: "10 digits, numbers only",
+      attendeesPlaceholder: "-- Select number of attendees --",
+      attendeesHint: "Select if more than one person is attending.",
+      submitBtn: "Submit Registration",
+      backBtn: "Back",
+      thanksTitle: "🎉 Thank You!",
+      thanksLead: "Your registration has been received successfully.<br/>Please collect your coupon.",
+      homeBtn: "Back to Home",
+      infoAlert: "Baptist Church Hyderabad | 15-12-2025 9:30 AM | Lunch Follows",
+      validation: {
+        role: "Please select Pastor or Believer.",
+        fullName: "Please enter your full name.",
+        church: "Please enter your church name.",
+        city: "Please enter your city.",
+        state: "Please enter your state.",
+        phone: "Phone must be exactly 10 digits.",
+        email: "Please enter a valid email.",
+        attendeeFill: "Please fill Name and Relation for Attendee {i}.",
+        submitFail: "Could not submit to server. Try again later.",
+        badServer: "Bad response from server",
+        serverError: "Server returned an error"
+      }
+    },
+    te: {
+      langName: "తెలుగు",
+      orgName: "తెలంగాణ యూనైటెడ్ బంజారా వెల్ఫేర్ అసోసియేషన్",
+      title: "యూనైటెడ్ బంజారా గ్రాండ్ క్రిస్మస్ 2025 🎄",
+      lead: "సంతోషం, కీర్తనలు, కమ్యూనిటీ మరియు వేడుకల కోసం మాతో ఉండండి.",
+      registerBtn: "ఇప్పుడే నమోదు చేయండి",
+      infoBtn: "ఈవెంట్ సమాచారం",
+      formTitle: "ఈవెంట్ రిజిస్ట్రేషన్",
+      formLead: "దయచేసి క్రింది వివరాలను పూరించండి.",
+
+      labelRole: "మీరు పాస్టరా లేక విశ్వాసిగా? <span>*</span>",
+      labelReferredBy: "పాస్టర్ పేరు ద్వారా సూచించబడింది",
+      rolePastor: "పాస్టర్",
+      roleBeliever: "విశ్వాసి",
+      rolePlaceholder: "-- ఎంచుకోండి --",
+
+      labelFullName: "పూర్తి పేరు<span>*</span>",
+      labelChurch: "చర్చ్<span>*</span>",
+      labelAge: "వయస్సు (ఐచ్ఛికం)",
+      labelCity: "నగరం<span>*</span>",
+      labelState: "రాష్ట్రం<span>*</span>",
+      labelPhone: "ఫోన్<span>*</span>",
+      labelEmail: "ఇమెయిల్ (ఐచ్ఛికం)",
+      labelAttendees: "ప్రవేశికల సంఖ్య (ఐచ్ఛికం)",
+      phFullName: "",
+      phChurch: "",
+      phAge: "",
+      phCity: "ఉదా., హైదరాబాద్",
+      phState: "ఉదా., తెలంగాణ",
+      phPhone: "ఉదా., 9876543210",
+      phEmail: "you@example.com",
+      phoneHint: "10 అంకెలు మాత్రమే, సంఖ్యలు మాత్రమే",
+      attendeesPlaceholder: "-- ఆటెండీల సంఖ్యను ఎంచుకోండి --",
+      attendeesHint: "ఒక కన్నా ఎక్కువ మంది వస్తుంటే ఎంచుకోండి.",
+      submitBtn: "నమోదును పంపించండి",
+      backBtn: "తిరిగి",
+      thanksTitle: "🎉 ధన్యవాదాలు!",
+      thanksLead: "మీ రిజిస్ట్రేషన్ విజయవంతంగా స్వీకరించబడింది.<br/>దయచేసి మీ కూపన్ తీసుకోండి.",
+      homeBtn: "తిరిగి హోమ్",
+      infoAlert: "బాప్టిస్ట్ చర్చ్ హైదరాబాద్ | 15-12-2025 9:30 AM | లంచ్ అందుతుంది",
+      validation: {
+        role: "దయచేసి పాస్టర్ లేదా విశ్వాసిని ఎంచుకోండి.",
+        fullName: "దయచేసి మీ పూర్తి పేరును నమోదు చేయండి.",
+        church: "దయచేసి చర్చ్ పేరును నమోదు చేయండి.",
+        city: "దయచేసి మీ నగరాన్ని నమోదు చేయండి.",
+        state: "దయచేసి మీ రాష్ట్రాన్ని నమోదు చేయండి.",
+        phone: "ఫోన్ నంబర్ తప్పనిసరిగా 10 అంకెలు.",
+        email: "దయచేసి సరైన ఇమెయిల్ నమోదు చేయండి.",
+        attendeeFill: "దయచేసి అటెండీ {i} కోసం పేరు మరియు సంబంధం భర్తీ చేయండి.",
+        submitFail: "సర్వర్‌కు సమర్పించలేకపోయాం. తరువాత మళ్లీ ప్రయత్నించండి.",
+        badServer: "సర్వర్ నుండి చెల్లని ప్రతిస్పందన వచ్చింది",
+        serverError: "సర్వర్ లో లోపం వచ్చింది"
+      }
+    }
+  };
+
+  // ---------- Utility to update DOM strings ----------
+  function setLanguage(lang) {
+    const s = STRINGS[lang] || STRINGS.en;
+    document.documentElement.lang = (lang === 'te') ? 'te' : 'en';
+
+    document.querySelectorAll('[data-i]').forEach(el => {
+      const key = el.getAttribute('data-i');
+      if (!key) return;
+      if (s[key] !== undefined) {
+        el.innerHTML = s[key];
+      }
+    });
+
+    document.querySelectorAll('[data-i-placeholder]').forEach(inp => {
+      const key = inp.getAttribute('data-i-placeholder');
+      if (key && s[key] !== undefined) {
+        inp.placeholder = s[key];
+      }
+    });
+
+    const phoneHint = document.getElementById('phoneHint');
+    if (phoneHint) phoneHint.textContent = s.phoneHint || "";
+
+    const attendeesHint = document.getElementById('attendeesHint');
+    if (attendeesHint) attendeesHint.textContent = s.attendeesHint || "";
+
+    const attendeesSelect = document.getElementById('attendees');
+    const firstOpt = attendeesSelect.querySelector('option[disabled]');
+    if (firstOpt) firstOpt.textContent = s.attendeesPlaceholder || "";
+
+    const org = document.querySelector('.pill');
+    if (org) {
+      const dot = org.querySelector('.dot');
+      org.innerHTML = '';
+      if (dot) org.appendChild(dot);
+      const text = document.createTextNode(' ' + (s.orgName || ''));
+      org.appendChild(text);
+    }
+
+    const infoBtn = document.getElementById('btnInfo');
+    if (infoBtn) infoBtn.title = s.infoBtn || '';
+
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    document.getElementById('lang-te').setAttribute('aria-pressed', lang === 'te' ? 'true' : 'false');
+
+    try { localStorage.setItem('ub_lang', lang); } catch(e){ }
+
+    window.__UB_CURRENT_LANG = lang;
+  }
+
+  // ---------- Festive animation (unchanged) ----------
+  const festive = document.getElementById('festive');
+  const fctx = festive.getContext('2d');
+  let festRAF = null;
+  let flakes = [];
+  let emojis = [];
+  const emojiList = ['🔔','🎁','🎄','⭐','❄️'];
+
+  function resizeFestive(){ festive.width = innerWidth; festive.height = innerHeight; }
+  addEventListener('resize', resizeFestive); resizeFestive();
+
+  function seedFestive(){
+    flakes = []; emojis = [];
+    const snowCount = 140;
+    for(let i=0;i<snowCount;i++){
+      flakes.push({
+        x: Math.random()*festive.width,
+        y: Math.random()*festive.height,
+        r: 1 + Math.random()*2.2,
+        vy: 0.8 + Math.random()*1.6,
+        vx: (Math.random()-0.5)*0.6,
+        alpha: 0.5 + Math.random()*0.5
+      });
+    }
+    const emojiCount = 70;
+    for(let i=0;i<emojiCount;i++){
+      emojis.push({
+        x: Math.random()*festive.width,
+        y: -Math.random()*festive.height,
+        vy: 2.0 + Math.random()*1.8,
+        vx: (Math.random()-.5)*1.0,
+        rot: Math.random()*Math.PI,
+        vr: (Math.random()-.5)*0.03,
+        size: 18 + Math.random()*18,
+        char: emojiList[Math.floor(Math.random()*emojiList.length)]
+      });
+    }
+  }
+
+  function drawFestive(){
+    fctx.clearRect(0,0,festive.width,festive.height);
+    fctx.save();
+    flakes.forEach(f=>{
+      f.y += f.vy; f.x += f.vx;
+      if(f.y > festive.height+5){ f.y = -5; f.x = Math.random()*festive.width; }
+      if(f.x < -10) f.x = festive.width+10;
+      if(f.x > festive.width+10) f.x = -10;
+      fctx.globalAlpha = f.alpha;
+      fctx.beginPath();
+      fctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+      fctx.fillStyle = '#ffffff';
+      fctx.fill();
+    });
+    fctx.restore();
+    emojis.forEach(e=>{
+      e.y += e.vy; e.x += e.vx; e.rot += e.vr;
+      if(e.y > festive.height+30){ e.y = -30; e.x = Math.random()*festive.width; }
+      if(e.x < -30) e.x = festive.width+30;
+      if(e.x > festive.width+30) e.x = -30;
+      fctx.save();
+      fctx.translate(e.x, e.y);
+      fctx.rotate(e.rot);
+      fctx.font = `${e.size}px system-ui, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji`;
+      fctx.textAlign = 'center';
+      fctx.textBaseline = 'middle';
+      fctx.fillText(e.char, 0, 0);
+      fctx.restore();
+    });
+    festRAF = requestAnimationFrame(drawFestive);
+  }
+
+  function startFestive(){
+    if(prefersReducedMotion) return;
+    resizeFestive();
+    seedFestive();
+    if(!festRAF) drawFestive();
+  }
+  function stopFestive(){
+    if(festRAF){ cancelAnimationFrame(festRAF); festRAF = null; }
+    fctx.clearRect(0,0,festive.width,festive.height);
+  }
+
+  startFestive();
+
+  // ---------- Confetti (unchanged) ----------
+  const cf = document.getElementById('confetti');
+  const ctx = cf.getContext('2d');
+  let pieces = [];
+  function resizeConfetti(){ cf.width = innerWidth; cf.height = innerHeight; }
+  addEventListener('resize', resizeConfetti); resizeConfetti();
+
+  function makeConfetti(){
+    pieces = [];
+    const colors = ['#7c3aed','#22c55e','#3b82f6','#f59e0b','#ef4444'];
+    for(let i=0;i<150;i++){
+      pieces.push({
+        x: Math.random()*cf.width,
+        y: -Math.random()*cf.height,
+        w: 6+Math.random()*6,
+        h: 10+Math.random()*10,
+        rot: Math.random()*Math.PI,
+        vel: 2+Math.random()*4,
+        col: colors[Math.floor(Math.random()*colors.length)]
+      });
+    }
+  }
+  function drawConfetti(){
+    ctx.clearRect(0,0,cf.width,cf.height);
+    pieces.forEach(p=>{
+      p.y += p.vel;
+      p.rot += 0.05;
+      if(p.y > cf.height+20) p.y = -20;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.col;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    requestAnimationFrame(drawConfetti);
+  }
+  drawConfetti();
+
+  // ---------- Form logic + localization-aware validation ----------
+  (function(){
+    const form = document.getElementById("registrationForm");
+    const attendeeList = document.getElementById("attendeeList");
+    const attendeeWrap = document.getElementById("attendeesWrap");
+    const byId = id => document.getElementById(id);
+    const setError = (id, msg = "") => { const el = byId(id); if(el) el.textContent = msg || ""; };
+
+    // Populate attendees dropdown
+    (function(){
+      const sel = byId("attendees");
+      for(let i=1;i<=MAX_ATTENDEES;i++){
+        const o = document.createElement("option");
+        o.value = o.textContent = i;
+        sel.appendChild(o);
+      }
+    })();
+
+    function renderAttendeeRows(n){
+      attendeeList.innerHTML = "";
+      if(!n || n < 1){ attendeeWrap.hidden = true; return; }
+      attendeeWrap.hidden = false;
+      const lang = window.__UB_CURRENT_LANG || 'en';
+      const s = STRINGS[lang];
+      for(let i=1;i<=n;i++){
+        const d = document.createElement("div");
+        d.className = "attendee";
+        const labelAttendee = (lang === 'te') ? `అటెండీ ${i}` : `Attendee ${i}`;
+        const labelName = (lang === 'te') ? 'పేరు' : 'Name';
+        const labelRelation = (lang === 'te') ? 'సంబంధం' : 'Relation';
+        d.innerHTML = `
+          <h3>${labelAttendee}</h3>
+          <div class="grid">
+            <div class="field"><label>${labelName}</label><input class="input" name="attendeeName_${i}" placeholder="${ (lang==='te') ? 'పూర్తి పేరు' : 'Full Name' }" required></div>
+            <div class="field"><label>${labelRelation}</label><input class="input" name="attendeeRelation_${i}" placeholder="${ (lang==='te') ? 'సంబంధం' : 'Relation' }" required></div>
+          </div>`;
+        attendeeList.appendChild(d);
+      }
+    }
+    byId("attendees").addEventListener("change", e => renderAttendeeRows(Number(e.target.value)));
+
+    // NEW: show pastor name field when role is selected (Pastor or Believer)
+    const roleSelect = byId("role");
+    if (roleSelect) {
+      roleSelect.addEventListener("change", e => {
+        const wrap = byId("referredWrap");
+        if (!wrap) return;
+        wrap.hidden = e.target.value ? false : true;
+      });
+    }
+
+    function validate(){
+      let ok = true;
+      const lang = window.__UB_CURRENT_LANG || 'en';
+      const v = STRINGS[lang].validation;
+
+      const role = byId("role").value;
+      const fullName = byId("fullName").value.trim();
+      const church = byId("church").value.trim();
+      const city = byId("city").value.trim();
+      const state = byId("state").value.trim();
+      const phone = byId("phone").value.trim();
+      const email = byId("email").value.trim();
+      const attendees = Number(byId("attendees").value || 0);
+
+      if(!role){ setError("roleError", v.role); ok=false; } else setError("roleError", "");
+
+      if(fullName.length < 2){ setError("fullNameError", v.fullName); ok=false; } else setError("fullNameError", "");
+      if(church.length < 2){ setError("churchError", v.church); ok=false; } else setError("churchError", "");
+      if(city.length < 2){ setError("cityError", v.city); ok=false; } else setError("cityError", "");
+      if(state.length < 2){ setError("stateError", v.state); ok=false; } else setError("stateError", "");
+      if(!/^\d{10}$/.test(phone)){ setError("phoneError", v.phone); ok=false; } else setError("phoneError", "");
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError("emailError", v.email); ok=false; } else setError("emailError", "");
+
+      if(attendees > 0){
+        for(let i=1;i<=attendees;i++){
+          const n = (form[`attendeeName_${i}`]?.value || "").trim();
+          const r = (form[`attendeeRelation_${i}`]?.value || "").trim();
+          if(!n || !r){
+            alert(v.attendeeFill.replace('{i}', i));
+            ok = false;
+            break;
+          }
+        }
+      }
+      return ok;
+    }
+
+    async function sendToSheet(data){
+      const res = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data)
+      });
+      const t = await res.text();
+      let j;
+      try { j = JSON.parse(t); }
+      catch { throw new Error(STRINGS[window.__UB_CURRENT_LANG || 'en'].validation.badServer); }
+      if(!j.success) throw new Error(j.error || STRINGS[window.__UB_CURRENT_LANG || 'en'].validation.serverError);
+      return j; // includes token
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if(!validate()) return;
+
+      showSubmittingPopup(true);
+
+      const fd = new FormData(form);
+      const c = Number(fd.get('attendees') || 0);
+      for (let i = 1; i <= c; i++) {
+        const nameEl = form.querySelector(`[name="attendeeName_${i}"]`);
+        const relEl  = form.querySelector(`[name="attendeeRelation_${i}"]`);
+        const nameVal = nameEl ? (nameEl.value || "") : "";
+        const relVal  = relEl  ? (relEl.value  || "") : "";
+        if (fd.has(`attendeeName_${i}`)) fd.delete(`attendeeName_${i}`);
+        fd.append(`attendeeName_${i}`, nameVal);
+        if (fd.has(`attendeeRelation_${i}`)) fd.delete(`attendeeRelation_${i}`);
+        fd.append(`attendeeRelation_${i}`, relVal);
+      }
+      const data = Object.fromEntries(fd.entries());
+
+      // Correct IST timestamp (UTC +5:30)
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istTime = new Date(utc + (5.5 * 60 * 60 * 1000));
+      const pad = n => String(n).padStart(2, "0");
+      data.submittedAt = `${istTime.getFullYear()}-${pad(istTime.getMonth() + 1)}-${pad(istTime.getDate())} ${pad(istTime.getHours())}:${pad(istTime.getMinutes())}:${pad(istTime.getSeconds())}`;
+
+      try{
+        const result = await sendToSheet(data);
+        const token = result.token || '';
+        const attendeeTokens = Array.isArray(result.attendeeTokens) ? result.attendeeTokens : [];
+
+        const tEl = document.getElementById('tokenValue');
+        if (tEl) tEl.textContent = token;
+
+        const wrapper = document.getElementById('attendeeTokensWrapper');
+        const list = document.getElementById('attendeeTokensList');
+        if (list) list.innerHTML = '';
+        if (attendeeTokens.length > 0) {
+          if (wrapper) wrapper.style.display = 'block';
+          attendeeTokens.forEach(at => {
+            const chip = document.createElement('div');
+            chip.textContent = at;
+            chip.style.padding = '8px 12px';
+            chip.style.borderRadius = '10px';
+            chip.style.background = 'linear-gradient(90deg,#0f1724,#111827)';
+            chip.style.border = '1px solid rgba(255,255,255,.06)';
+            chip.style.fontWeight = '700';
+            list.appendChild(chip);
+          });
+        } else {
+          if (wrapper) wrapper.style.display = 'none';
+        }
+
+        makeConfetti();
+        showView('view-thanks');
+      } catch(err) {
+        const lang = window.__UB_CURRENT_LANG || 'en';
+        const msg = STRINGS[lang].validation.submitFail + (err.message ? ` (${err.message})` : '');
+        alert(msg);
+        console.error(err);
+      } finally {
+        showSubmittingPopup(false);
+        form.reset();
+        attendeeList.innerHTML = "";
+        attendeeWrap.hidden = true;
+        document.getElementById("attendees").selectedIndex = 0;
+        const refWrap = document.getElementById("referredWrap");
+        if (refWrap) refWrap.hidden = true;
+      }
+    });
+
+    // Navigation + Jingle (info alert localized)
+    document.getElementById('btnStart').addEventListener('click', () => {
+      showView('view-form');
+    });
+    document.getElementById('btnBackHome').addEventListener('click', () => showView('view-welcome'));
+    document.getElementById('btnHome').addEventListener('click', () => showView('view-welcome'));
+    document.getElementById('btnInfo').addEventListener('click', () => {
+      const lang = window.__UB_CURRENT_LANG || 'en';
+      alert(STRINGS[lang].infoAlert);
+    });
+
+  })();
+
+  // ---------- Views ----------
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id === 'view-welcome'){ startFestive(); } else { stopFestive(); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ---------- Language toggle wiring ----------
+  document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+  document.getElementById('lang-te').addEventListener('click', () => setLanguage('te'));
+
+  // Apply initial language (from localStorage or default to English)
+  (function initLanguage(){
+    const saved = (function(){ try { return localStorage.getItem('ub_lang'); } catch(e){ return null; } })();
+    const initial = saved || 'en';
+    setLanguage(initial);
+    const attendeesVal = Number(document.getElementById('attendees').value || 0);
+    if (attendeesVal > 0) {
+      setTimeout(()=> {
+        const event = new Event('change');
+        document.getElementById('attendees').dispatchEvent(event);
+      }, 0);
+    }
+  })();
+
+</script>
+</body>
+</html>
