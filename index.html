@@ -106,18 +106,30 @@ input:focus,select:focus{outline:none;border-color:var(--crimson);box-shadow:0 0
 .tk small{font-size:.82rem;letter-spacing:.04em;color:#ffd9d9}.tok{font-family:var(--serif);font-weight:900;font-size:2.1rem;line-height:1.1;margin:8px 0 12px;word-break:break-all}
 .tk .b em{font-size:.88rem;font-style:normal;color:#ffe9e9}
 .acts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px}
-
+.soc{max-width:760px;margin:34px auto 0;text-align:center;padding:30px 24px;border:1px solid rgba(232,182,74,.45);background:rgba(18,56,46,.7);position:relative}
+.soc h3{font-size:1.5rem;font-weight:700}.soc p{color:#cfc7ae;margin:4px 0 22px}
+.sl{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.sb{display:flex;align-items:center;gap:14px;padding:14px 26px 14px 16px;color:#fff;text-decoration:none;font-weight:600;min-width:250px;text-align:left;transition:transform .2s,box-shadow .2s}
+.sb:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.sb svg{width:36px;height:36px;flex:none}.sb small{display:block;font-weight:400;opacity:.9;font-size:.82rem;line-height:1.2}.sb span{font-family:var(--serif);font-size:1.1rem;line-height:1.2}
+.sb.ig{background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888)}.sb.yt{background:#e00000}
+textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #cdc3a2;background:#fff;color:var(--ink);border-radius:0;resize:vertical}textarea:focus{outline:none;border-color:var(--crimson);box-shadow:0 0 0 4px rgba(179,32,47,.14)}
+.opt{font-weight:400;color:var(--mut)}input[type=file]{padding:11px;background:#fff}
+.decl{display:flex;gap:12px;align-items:flex-start;font-weight:500;color:var(--ink);margin-top:18px}.decl input{width:20px;height:20px;margin-top:4px;flex:none;accent-color:var(--crimson)}
+#pv{max-width:180px;margin-top:14px;border:3px solid var(--gold);display:block}#pv[hidden],#mDone[hidden],#mForm[hidden]{display:none}
+.mdone{text-align:center;padding:40px 10px}.mdone h2{margin:14px 0 8px}.mid{font-family:var(--serif);font-weight:900;font-size:2.4rem;color:var(--crimson);margin:14px 0}
+.mdone .acts .btn.line{color:var(--pine);box-shadow:inset 0 0 0 2px var(--pine)}
 @media(max-width:900px){.links .l,.links a{display:none}.hero .c,.abt,.vn,.rg{grid-template-columns:1fr}.hero .c{padding-top:50px}.side{border:0;padding:34px 24px}.side>div{position:static}.tk{grid-template-columns:1fr}.tk .b{border-left:0;border-top:3px dashed var(--paper)}.tk .b::before{left:-13px;top:-13px}.tk .b::after{left:auto;right:-13px;top:-13px;bottom:auto}section.s{padding:64px 0}}
 @media(max-width:600px){.g,.row,.who{grid-template-columns:1fr}.row i{padding:0;text-align:left}.tl::before{left:0}.ev{grid-template-columns:1fr}.ev div{padding-left:26px}.ev div::before{left:-7px}.ev time{padding-left:26px;margin-bottom:2px}.vn>div{padding:32px 24px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}#snow{display:none}}
-@media print{body{background:#fff}#snow,.band,nav,footer,.acts{display:none}.tk{box-shadow:none}}
+@media print{body{background:#fff}#snow,.band,nav,footer,.acts,.soc{display:none}.tk{box-shadow:none}}
 </style>
 </head>
 <body>
 <canvas id="snow" aria-hidden="true"></canvas>
 <nav><div class="c">
-  <a class="logo" href="#home"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4l9 30 31 3-24 20 8 31-24-17-24 17 8-31L10 37l31-3z" fill="#e8b64a"/><circle cx="50" cy="50" r="9" fill="#b3202f"/></svg><span>United Banjara Christmas<small>2026</small></span></a>
-  <div class="links"><button class="l" data-go="about">About</button><button class="l" data-go="programme">Programme</button><button class="l" data-go="venue">Venue</button><a class="btn sm" href="#register">Register</a></div>
+  <a class="logo" href="#home"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4l9 30 31 3-24 20 8 31-24-17-24 17 8-31L10 37l31-3z" fill="#e8b64a"/><circle cx="50" cy="50" r="9" fill="#b3202f"/></svg><span>Telangana United Banjara Welfare Association<small>Presents</small></span></a>
+  <div class="links"><button class="l" data-go="about">About</button><button class="l" data-go="programme">Programme</button><button class="l" data-go="venue">Venue</button><a class="l" href="#marriage">Marriage Proforma</a><a class="btn sm" href="#register">Register</a></div>
 </div></nav>
 
 <!-- HOME -->
@@ -148,7 +160,7 @@ input:focus,select:focus{outline:none;border-color:var(--crimson);box-shadow:0 0
     <div class="sh"><h2>The day at a glance</h2><p style="color:#cfc7ae">A full programme of worship and celebration. Timings may be adjusted by the organisers.</p></div>
     <div class="tl" id="tl"></div>
   </div></section>
-
+  <section class="s" id="marriage-cta" style="padding:70px 0 20px"><div class="c" style="text-align:center;max-width:760px"><h2 style="font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700">Marriage Proforma</h2><p style="color:#cfc7ae;margin:14px 0 26px;font-size:1.08rem">Fill in the proforma with your details, partner expectations and a recent photograph.</p><a class="btn line" href="#marriage">Fill Marriage Proforma</a></div></section>
   <section class="s" id="venue" style="padding-top:0"><div class="c"><div class="vn">
     <div><h2>Join us</h2><dl><div><dt>Date</dt><dd id="vDate"></dd></div><div><dt>Time</dt><dd id="vTime"></dd></div><div><dt>Place</dt><dd id="vPlace"></dd></div></dl></div>
     <div class="r"><h3>Your seat is waiting</h3><p>Registration takes about two minutes. Every registration gets a unique token such as UBGC-0001.</p><a class="btn dark" href="#register" style="align-self:flex-start">Register now</a></div>
@@ -166,7 +178,7 @@ input:focus,select:focus{outline:none;border-color:var(--crimson);box-shadow:0 0
       <br><a href="#home" style="color:var(--gold);text-decoration:none">&larr; Back to home</a>
     </div></aside>
     <div class="main"><form class="form" id="form" novalidate>
-      <h2>Registration form</h2><p class="sub">All fields are required.</p>
+      <h2>Registration form</h2><p class="sub">All fields are required except the number of attendees. If you choose a number, details for each attendee are required.</p>
       <fieldset><legend>Your details</legend><div class="g">
         <div class="full"><label for="role">Are you a pastor or a believer?</label><select id="role"><option value="">Select</option><option>Pastor</option><option>Believer</option></select><div class="err"></div></div>
         <div class="full"><label for="name">Full name</label><input id="name" autocomplete="name" placeholder="Your full name"><div class="err"></div></div>
@@ -174,20 +186,39 @@ input:focus,select:focus{outline:none;border-color:var(--crimson);box-shadow:0 0
         <div><label for="phone">Phone number</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="10-digit mobile number"><div class="err"></div></div>
         <div class="full"><label for="church">Church</label><input id="church" placeholder="Name of your church"><div class="err"></div></div>
         <div><label for="city">City (district)</label><select id="city"></select><div class="err"></div></div>
-        <div><label for="count">Number of attendees</label><select id="count"></select><div class="err"></div></div>
+        <div><label for="count">Number of attendees <span style="font-weight:400;color:var(--mut)">(optional)</span></label><select id="count"></select><div class="err"></div></div>
+        <div class="full" id="otherBox" hidden><label for="otherCity">Enter your city / place</label><input id="otherCity" placeholder="Type your city or town"><div class="err"></div></div>
       </div></fieldset>
       <fieldset id="attSec" hidden><legend>Attendees</legend><p class="sub" style="margin:10px 0 0">Enter the name and phone number of each person attending.</p><div id="attList"></div></fieldset>
       <button type="submit" class="btn send" id="send">Submit registration</button><p class="note" id="note" role="alert"></p>
     </form></div>
   </div>
 </section>
-
+<!-- MARRIAGE -->
+<section id="marriage" class="view"><div class="main" style="min-height:calc(100vh - 86px)"><div class="form" style="max-width:860px;margin:0 auto">
+  <a href="#home" style="color:var(--crimson);text-decoration:none;font-weight:600">&larr; Back to home</a>
+  <form id="mForm" novalidate>
+    <h2 style="margin-top:14px">Marriage Proforma</h2><p class="sub">Fields marked optional can be left blank. All other fields are required.</p>
+    <div id="mFields"></div>
+    <fieldset><legend>Photograph</legend><label for="photo">Attach recent photograph</label><input type="file" id="photo" accept="image/*"><div class="err"></div><img id="pv" alt="Photo preview" hidden></fieldset>
+    <fieldset><legend>Declaration</legend><label class="decl"><input type="checkbox" id="decl"><span>I hereby declare that the above information is true and correct to the best of my knowledge.</span></label><div class="err"></div></fieldset>
+    <button type="submit" class="btn send" id="mSend">Submit</button><p class="note" id="mNote" role="alert"></p>
+  </form>
+  <div id="mDone" class="mdone" hidden><div class="chk" style="margin:0 auto"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8b64a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Proforma submitted successfully</h2><p style="color:var(--mut)">Your reference ID</p><div class="mid" id="mId"></div><p style="color:var(--mut)">Please keep this ID for future reference.</p>
+    <div class="acts"><button class="btn dark" id="mAgain" type="button">Submit another proforma</button><a class="btn line" href="#home">Back to home</a></div><div id="mSoc"></div></div>
+</div></div></section>
 <!-- SUCCESS -->
 <section id="success" class="view"><div class="ok c">
   <div class="tk"><div class="a"><div class="chk"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8b64a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
     <h2>Registration successful</h2><p id="thanks"></p><div class="sum" id="sum"></div></div>
     <div class="b"><small>YOUR TOKEN</small><div class="tok" id="tok">UBGC-0000</div><em>Show this at the entrance. Please save a screenshot.</em></div></div>
   <div class="acts"><button class="btn" id="ics">Add to calendar</button><button class="btn line" onclick="window.print()">Print ticket</button><a class="btn line" href="#home">Back to home</a></div>
+  <div class="soc"><h3>Stay connected with TUBWA</h3><p>Subscribe and follow us for event updates, worship and Christmas highlights.</p>
+    <div class="sl">
+      <a class="sb ig" href="https://www.instagram.com/tubwa_official/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg><div><small>Follow us on</small><span>Subscribe on Instagram</span></div></a>
+      <a class="sb yt" href="https://www.youtube.com/@tubwaofficial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="#fff"/><path d="M10 9v6l5.2-3z" fill="#e00000"/></svg><div><small>Watch us on</small><span>Subscribe on YouTube</span></div></a>
+    </div></div>
 </div></section>
 
 <div class="band" style="position:relative;z-index:2"></div>
@@ -195,9 +226,9 @@ input:focus,select:focus{outline:none;border-color:var(--crimson);box-shadow:0 0
 /* ===== EDIT THESE ===== */
 const CONFIG={
   startISO:"2026-12-12T10:00:00+05:30",
-  date:"12 December 2026", time:"10:00 AM onwards", place:"St Mary's Rehabilitation University, Telangana",
-  contact:"Contact: add organiser phone or email here",
-  scriptUrl:"", /* paste your Google Apps Script Web App URL (ends with /exec) */
+  date:"12 December 2026", time:"10:00 AM onwards", place:"St Mary's Rehabilitation University",
+  contact:"9949424217-Abhishek",
+  scriptUrl:"https://script.google.com/macros/s/AKfycby0s37LAxnaqGbAZI2pOzCUhrRuU5vYfEhZPAUpV-0ln3pcQY4-Y6D5FSW1-cSEMPr0nw/exec", /* paste your Google Apps Script Web App URL (ends with /exec) */
   programme:[
     ["10:00 AM","Welcome and prayer","Doors open, registration desk and a warm welcome from the organisers."],
     ["10:30 AM","Praise and worship","Banjara choirs and worship teams lead the congregation in song."],
@@ -213,11 +244,11 @@ const $=id=>document.getElementById(id),Q=s=>document.querySelectorAll(s);
 const put=(s,t)=>Q(s).forEach(e=>e.textContent=t);
 put('#qDate,#vDate,.fd',CONFIG.date);put('#qTime,#vTime,.ft',CONFIG.time);put('#qPlace,#vPlace,.fp',CONFIG.place);put('#contact',CONFIG.contact);
 $('tl').innerHTML=CONFIG.programme.map(p=>`<div class="ev"><time>${p[0]}</time><div><h3>${p[1]}</h3><p>${p[2]}</p></div></div>`).join('');
-$('city').innerHTML='<option value="">Select district</option>'+DISTRICTS.map(d=>`<option>${d}</option>`).join('');
-$('count').innerHTML='<option value="">Select</option>'+Array.from({length:25},(_,i)=>`<option>${i+1}</option>`).join('');
+$('city').innerHTML='<option value="">Select district</option>'+DISTRICTS.map(d=>`<option>${d}</option>`).join('')+'<option>Others</option>';
+$('count').innerHTML='<option value="">Not adding attendees</option>'+Array.from({length:25},(_,i)=>`<option>${i+1}</option>`).join('');
 Q('[data-go]').forEach(b=>b.onclick=()=>{const t=$(b.dataset.go);if(t)t.scrollIntoView({behavior:'smooth'})});
 
-function route(){const h=(location.hash||'#home').slice(1);let id=['home','register','success'].includes(h)?h:'home';
+function route(){const h=(location.hash||'#home').slice(1);let id=['home','register','success','marriage'].includes(h)?h:'home';
   if(id==='success'&&!window.__done)id='home';
   Q('.view').forEach(v=>v.classList.toggle('on',v.id===id));window.scrollTo(0,0)}
 addEventListener('hashchange',route);route();
@@ -236,35 +267,78 @@ $('count').onchange=()=>{const n=+$('count').value,l=$('attList'),old=[...l.quer
 const okPhone=v=>/^[6-9]\d{9}$/.test(v.trim());
 const setErr=(el,m)=>{const e=el.parentElement.querySelector('.err');if(e)e.textContent=m||'';return !m};
 function validate(){let ok=true;
-  [['role','Select pastor or believer'],['name','Enter your name'],['age','Select your age range'],['church','Enter your church'],['city','Select your district'],['count','Select number of attendees']].forEach(([i,m])=>{if(!setErr($(i),$(i).value.trim()?'':m))ok=false});
+  [['role','Select pastor or believer'],['name','Enter your name'],['age','Select your age range'],['church','Enter your church'],['city','Select your district']].forEach(([i,m])=>{if(!setErr($(i),$(i).value.trim()?'':m))ok=false});
   if(!setErr($('phone'),okPhone($('phone').value)?'':'Enter a valid 10-digit mobile number'))ok=false;
-  Q('.row').forEach(r=>{const a=r.querySelector('.an'),p=r.querySelector('.ap');if(!setErr(a,a.value.trim()?'':'Enter name'))ok=false;if(!setErr(p,okPhone(p.value)?'':'Enter a valid 10-digit number'))ok=false});return ok}
-$('phone').addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,''));
+  Q('.row').forEach(r=>{const a=r.querySelector('.an'),p=r.querySelector('.ap');if(!setErr(a,a.value.trim()?'':'Enter name'))ok=false;if(!setErr(p,okPhone(p.value)?'':'Enter a valid 10-digit number'))ok=false});if($('city').value==='Others'&&!setErr($('otherCity'),$('otherCity').value.trim()?'':'Enter your city or place'))ok=false;return ok}
+$('city').addEventListener('change',()=>{const o=$('city').value==='Others';$('otherBox').hidden=!o;if(!o){$('otherCity').value='';setErr($('otherCity'),'')}});('input',e=>e.target.value=e.target.value.replace(/\D/g,''));
 $('attList').addEventListener('input',e=>{if(e.target.classList.contains('ap'))e.target.value=e.target.value.replace(/\D/g,'')});
 
 $('form').addEventListener('submit',async e=>{e.preventDefault();$('note').textContent='';
   if(!validate()){$('note').textContent='Please fix the highlighted fields.';const f=document.querySelector('.err:not(:empty)');f&&f.scrollIntoView({block:'center',behavior:'smooth'});return}
-  const d={role:$('role').value,name:$('name').value.trim(),age:$('age').value,phone:$('phone').value.trim(),church:$('church').value.trim(),city:$('city').value,count:+$('count').value,
+  const d={role:$('role').value,name:$('name').value.trim(),age:$('age').value,phone:$('phone').value.trim(),church:$('church').value.trim(),city:$('city').value==='Others'?'Other: '+$('otherCity').value.trim():$('city').value,count:+$('count').value||0,
     attendees:[...Q('.row')].map(r=>({name:r.querySelector('.an').value.trim(),phone:r.querySelector('.ap').value.trim()}))};
   const b=$('send');b.disabled=true;b.textContent='Submitting...';
-  try{let token;
-    if(CONFIG.scriptUrl){const r=await fetch(CONFIG.scriptUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});const j=await r.json();if(!j.ok)throw new Error(j.error);token=j.token}
-    else{let n=1;try{n=(+localStorage.getItem('ubgc_demo')||0)+1;localStorage.setItem('ubgc_demo',n)}catch(_){}token='UBGC-'+String(n).padStart(4,'0')} /* demo mode */
-    done(d,token)}
+  try{let token,at=[];
+    if(CONFIG.scriptUrl){const r=await fetch(CONFIG.scriptUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});const j=await r.json();if(!j.ok)throw new Error(j.error);token=j.token;at=j.attendeeTokens||[]}
+    else{let n=0;try{n=+localStorage.getItem('ubgc_demo')||0}catch(_){}const f=k=>'UBGC-'+String(k).padStart(4,'0');token=f(n+1);at=d.attendees.map((_,i)=>f(n+2+i));try{localStorage.setItem('ubgc_demo',n+1+d.attendees.length)}catch(_){}} /* demo mode */
+    done(d,token,at)}
   catch(err){$('note').textContent='Could not submit. Check your internet connection and try again.'}
   finally{b.disabled=false;b.textContent='Submit registration'}});
 
-function done(d,t){$('tok').textContent=t;$('thanks').textContent=`Thank you, ${d.name}. Your seat${d.count>1?'s are':' is'} confirmed.`;
+function done(d,t,at){$('tok').textContent=t;$('thanks').textContent=d.count>1?`Thank you, ${d.name}. Your registration for ${d.count} attendees is confirmed.`:`Thank you, ${d.name}. Your registration is confirmed.`;
   const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const r=(a,b)=>`<p><span>${a}</span><b>${esc(b)}</b></p>`;
-  $('sum').innerHTML=r('Registered as',d.role)+r('Church',d.church)+r('District',d.city)+r('Attendees',d.count)+r('Date',CONFIG.date)+r('Time',CONFIG.time)+r('Place',CONFIG.place);
+  $('sum').innerHTML=r('Registered as',d.role)+r('Church',d.church)+r('District',d.city)+(d.count?r('Attendees',d.count):'')+r('Date',CONFIG.date)+r('Time',CONFIG.time)+r('Place',CONFIG.place)+(at&&at.length?'<p style="border:0;padding:18px 0 4px"><strong style="font-family:var(--serif);color:var(--pine);font-size:1.1rem">Attendee tokens</strong></p>'+at.map((k,i)=>r(d.attendees[i].name,k)).join(''):'');
   window.__done=true;location.hash='#success';$('form').reset();$('attList').innerHTML='';$('attSec').hidden=true}
 
 /* add to calendar (.ics) */
 $('ics').onclick=()=>{const s=new Date(CONFIG.startISO),f=x=>x.toISOString().replace(/[-:]|\.\d{3}/g,''),e=new Date(+s+7*36e5);
   const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:United Banjara Christmas 2026','DTSTART:'+f(s),'DTEND:'+f(e),'LOCATION:'+CONFIG.place,'END:VEVENT','END:VCALENDAR'].join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='UBC-2026.ics';a.click()};
-
+/* ===== MARRIAGE PROFORMA ===== */
+const N=n=>Array.from({length:n},(_,i)=>String(i));
+const MS=[
+["Basic Details",[["name","Full Name","t",1],["gender","Gender","s",1,["Male","Female"]],["dob","Date of Birth","d",1],["age","Age","n",1],["height","Height","t",1,"e.g. 5 ft 8 in"],["blood","Blood Group","s",0,["A+","A-","B+","B-","AB+","AB-","O+","O-"]],["marital","Marital Status","s",1,["Never Married","Divorced","Widowed","Separated"]],["tongue","Mother Tongue","t",1],["religion","Religion","t",1],["caste","Caste / Community (if applicable)","t",0],["subcaste","Sub-caste / Tribe","t",0]]],
+["Education & Profession",[["qual","Highest Qualification","t",1],["study","Field of Study","t",1],["job","Occupation / Job Title","t",1],["org","Organization / Company Name","t",1],["income","Annual Income","t",0],["worklocation","Work Location (City & State)","t",1]]],
+["Family Details",[["father","Father's Name","t",1],["fatherjob","Father's Occupation","t",1],["mother","Mother's Name","t",1],["motherjob","Mother's Occupation","t",1],["brothers","No. of Brothers","s",1,N(11)],["sisters","No. of Sisters","s",1,N(11)],["famtype","Family Type","s",1,["Nuclear","Joint"]],["famvalues","Family Values","s",1,["Traditional","Moderate","Liberal"]]]],
+["Cultural Information (Optional)",[["denom","Denomination / Sect","t",0],["church","Church","t",0],["baptized","Baptized / Confirmed (if applicable)","s",0,["Baptized","Confirmed","Both","Not yet","Not applicable"]]]],
+["Location Details",[["native","Native Place","t",1],["residence","Current Residence","t",1],["state","State / Country","t",1]]],
+["Expectations from Partner",[["pAge","Age Range","t",0,"e.g. 25 - 30"],["pHeight","Height Preference","t",0],["pEdu","Education Preference","t",0],["pJob","Profession Preference","t",0],["pComm","Community / Religion Preference","t",0],["pOther","Other Expectations (if any)","a",0]]],
+["Additional Information",[["about","About yourself, hobbies, interests, values, etc.","a",0]]],
+["Contact Details",[["cname","Contact Person Name","t",1],["relation","Relation","t",1],["mobile","Mobile Number","tel",1],["whatsapp","WhatsApp Number","tel",1],["email","Email ID","e",0]]]
+];
+const MF=MS.flatMap(x=>x[1]),TY={t:'text',d:'date',n:'number',tel:'tel',e:'email'};
+$('mFields').innerHTML=MS.map(([t,fs])=>`<fieldset><legend>${t}</legend><div class="g">`+fs.map(([id,l,ty,rq,x])=>{
+  const i='m_'+id,ph=typeof x==='string'?x:'';
+  const inp=ty==='s'?`<select id="${i}"><option value="">Select</option>${x.map(o=>`<option>${o}</option>`).join('')}</select>`
+   :ty==='a'?`<textarea id="${i}" rows="4" placeholder="${ph}"></textarea>`
+   :`<input id="${i}" type="${TY[ty]}" placeholder="${ph}"${ty==='tel'?' inputmode="numeric" maxlength="10"':''}${ty==='d'?' max="'+new Date().toISOString().slice(0,10)+'"':''}${ty==='n'?' min="18" max="99"':''}>`;
+  return `<div class="${ty==='a'?'full':''}"><label for="${i}">${l}${rq?'':' <span class="opt">(optional)</span>'}</label>${inp}<div class="err"></div></div>`}).join('')+`</div></fieldset>`).join('');
+['m_mobile','m_whatsapp'].forEach(i=>$(i).addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,'')));
+$('m_dob').addEventListener('change',()=>{const b=new Date($('m_dob').value);if(isNaN(b))return;const t=new Date();let a=t.getFullYear()-b.getFullYear();if(t<new Date(t.getFullYear(),b.getMonth(),b.getDate()))a--;$('m_age').value=a});
+$('photo').addEventListener('change',()=>{const f=$('photo').files[0];$('pv').hidden=!f;if(f)$('pv').src=URL.createObjectURL(f)});
+const se=(el,m)=>{const e=(el.closest('.g>div')||el.closest('fieldset')).querySelector('.err');e.textContent=m||'';return !m};
+function mValidate(){let ok=true;
+  MF.forEach(([id,l,ty,rq])=>{const el=$('m_'+id),v=el.value.trim();let m='';
+    if(rq&&!v)m='This field is required';
+    else if(v&&ty==='tel'&&!/^[6-9]\d{9}$/.test(v))m='Enter a valid 10-digit number';
+    else if(v&&ty==='e'&&!/^\S+@\S+\.\S+$/.test(v))m='Enter a valid email address';
+    else if(v&&ty==='n'&&(v<18||v>99))m='Enter a valid age (18 to 99)';
+    if(!se(el,m))ok=false});
+  if(!se($('photo'),$('photo').files[0]?'':'Please attach a photograph'))ok=false;
+  if(!se($('decl'),$('decl').checked?'':'Please accept the declaration to continue'))ok=false;return ok}
+function readPhoto(f){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const k=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.82).split(',')[1])};im.onerror=rej;im.src=URL.createObjectURL(f)})}
+$('mForm').addEventListener('submit',async e=>{e.preventDefault();$('mNote').textContent='';
+  if(!mValidate()){$('mNote').textContent='Please fix the highlighted fields.';const f=document.querySelector('#mForm .err:not(:empty)');f&&f.scrollIntoView({block:'center',behavior:'smooth'});return}
+  const b=$('mSend');b.disabled=true;b.textContent='Submitting...';
+  try{const fields={};MF.forEach(([id])=>fields[id]=$('m_'+id).value.trim());
+    const photo=await readPhoto($('photo').files[0]);let id;
+    if(CONFIG.scriptUrl){const r=await fetch(CONFIG.scriptUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'marriage',fields,photo,declaration:true})});const j=await r.json();if(!j.ok)throw new Error(j.error);id=j.id}
+    else{let n=0;try{n=(+localStorage.getItem('ubgm_demo')||0)+1;localStorage.setItem('ubgm_demo',n)}catch(_){n=1}id='UBGM-'+String(n).padStart(4,'0')} /* demo mode */
+    $('mId').textContent=id;$('mForm').hidden=true;$('mDone').hidden=false;$('mSoc').innerHTML='';const so=document.querySelector('.soc');if(so)$('mSoc').appendChild(so.cloneNode(true));window.scrollTo(0,0)}
+  catch(err){$('mNote').textContent='Could not submit. Check your internet connection and try again.'}
+  finally{b.disabled=false;b.textContent='Submit'}});
+$('mAgain').onclick=()=>{$('mForm').reset();$('pv').hidden=true;$('mForm').hidden=false;$('mDone').hidden=true;window.scrollTo(0,0)};
 /* snow */
 (function(){const c=$('snow'),x=c.getContext('2d');let W,H,f=[];const sz=()=>{W=c.width=innerWidth;H=c.height=innerHeight};sz();addEventListener('resize',sz);
   for(let i=0;i<60;i++)f.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*2.4+.8,s:Math.random()*.7+.3,d:Math.random()*6});
