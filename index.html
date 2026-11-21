@@ -121,6 +121,36 @@ textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #cdc3a2;ba
 .mdone .acts .btn.line{color:var(--pine);box-shadow:inset 0 0 0 2px var(--pine)}
 @media(max-width:900px){.links .l,.links a{display:none}.hero .c,.abt,.vn,.rg{grid-template-columns:1fr}.hero .c{padding-top:50px}.side{border:0;padding:34px 24px}.side>div{position:static}.tk{grid-template-columns:1fr}.tk .b{border-left:0;border-top:3px dashed var(--paper)}.tk .b::before{left:-13px;top:-13px}.tk .b::after{left:auto;right:-13px;top:-13px;bottom:auto}section.s{padding:64px 0}}
 @media(max-width:600px){.g,.row,.who{grid-template-columns:1fr}.row i{padding:0;text-align:left}.tl::before{left:0}.ev{grid-template-columns:1fr}.ev div{padding-left:26px}.ev div::before{left:-7px}.ev time{padding-left:26px;margin-bottom:2px}.vn>div{padding:32px 24px}}
+/* NEW FORM UI (registration + marriage) */
+.main{background:radial-gradient(ellipse 60% 40% at 85% 0%,rgba(232,182,74,.16),transparent 70%),radial-gradient(ellipse 50% 40% at 0% 100%,rgba(179,32,47,.22),transparent 70%),var(--pine);color:var(--ivory);padding:56px 5vw 90px}
+.form{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(232,182,74,.32);border-radius:22px;padding:50px 40px 44px;box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(8px);position:relative;overflow:hidden}
+.form::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--band) repeat-x;background-size:24px 12px}
+.form h2{color:var(--ivory);font-size:2.2rem}.form .sub{color:#cfc7ae}.form>a{color:var(--gold)!important}
+legend{color:var(--gold2);border:0;padding:0;display:flex;align-items:center;gap:12px;font-size:1.3rem;margin-bottom:4px}
+legend::before{content:"";width:11px;height:11px;background:var(--crimson);border:2px solid var(--gold);transform:rotate(45deg);flex:none}
+legend::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(232,182,74,.5),transparent)}
+label{color:#e9dfc0;font-size:.86rem;letter-spacing:.03em}
+input,select,textarea{background:rgba(0,0,0,.3);border:1px solid rgba(232,182,74,.3);border-radius:12px;color:var(--ivory);color-scheme:dark;padding:14px 16px}
+input::placeholder,textarea::placeholder{color:#8f8a73}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(232,182,74,.18);background:rgba(0,0,0,.42)}
+select{background:rgba(0,0,0,.3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23e8b64a' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 16px center}
+option{background:#12382e;color:var(--ivory)}
+.err,.note{color:#ff9a9a}.opt{color:#a99f82}.decl{color:var(--ivory)}
+.row{background:rgba(0,0,0,.25);border:1px solid rgba(232,182,74,.22);border-left:4px solid var(--gold);border-radius:12px}.row i{color:var(--gold)}
+.send{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--pine);border-radius:12px;box-shadow:0 12px 30px rgba(232,182,74,.25)}
+input[type=file]{background:rgba(0,0,0,.3)}input[type=file]::file-selector-button{margin-right:14px;border:0;padding:9px 16px;background:var(--gold);color:var(--pine);font-weight:700;border-radius:8px;cursor:pointer}
+.mdone p{color:#cfc7ae!important}.mid{color:var(--gold)}.mdone .chk{background:var(--crimson)}.mdone .btn.dark{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--pine)}.mdone .acts .btn.line{color:var(--gold);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.pinfo{display:flex;justify-content:space-between;gap:12px;margin:14px 0 10px;color:var(--gold2);font-weight:600}.pinfo span:last-child{font-family:var(--serif)}
+.pbar{height:7px;background:rgba(255,255,255,.12);border-radius:7px;overflow:hidden;margin-bottom:30px}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width .4s}
+#mForm fieldset{display:none}#mForm fieldset.on{display:block;animation:rise .45s both}
+.stepnav{display:flex;gap:14px;margin-top:10px}.stepnav .btn{flex:1;border-radius:12px;margin:0}.stepnav [hidden]{display:none}
+@media(max-width:600px){.form{padding:44px 18px 34px;border-radius:16px}}
+.atk{margin:4px 0 14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.35);text-align:left}
+.atk[hidden]{display:none}
+.atk h4{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:8px;color:#fff}
+.atk p{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.25);font-size:.85rem;color:#ffe9e9}
+.atk p b{font-family:var(--serif);font-size:1rem;color:#fff;white-space:nowrap}
+.atk p span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}#snow{display:none}}
 @media print{body{background:#fff}#snow,.band,nav,footer,.acts,.soc{display:none}.tk{box-shadow:none}}
 </style>
@@ -199,10 +229,11 @@ textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #cdc3a2;ba
   <a href="#home" style="color:var(--crimson);text-decoration:none;font-weight:600">&larr; Back to home</a>
   <form id="mForm" novalidate>
     <h2 style="margin-top:14px">Marriage Proforma</h2><p class="sub">Fields marked optional can be left blank. All other fields are required.</p>
+    <div class="pinfo"><span id="pt"></span><span id="pn"></span></div><div class="pbar"><i id="pf"></i></div>
     <div id="mFields"></div>
     <fieldset><legend>Photograph</legend><label for="photo">Attach recent photograph</label><input type="file" id="photo" accept="image/*"><div class="err"></div><img id="pv" alt="Photo preview" hidden></fieldset>
     <fieldset><legend>Declaration</legend><label class="decl"><input type="checkbox" id="decl"><span>I hereby declare that the above information is true and correct to the best of my knowledge.</span></label><div class="err"></div></fieldset>
-    <button type="submit" class="btn send" id="mSend">Submit</button><p class="note" id="mNote" role="alert"></p>
+    <div class="stepnav"><button type="button" class="btn line" id="mBack">Back</button><button type="button" class="btn" id="mNext">Next</button><button type="submit" class="btn send" id="mSend" hidden>Submit</button></div><p class="note" id="mNote" role="alert"></p>
   </form>
   <div id="mDone" class="mdone" hidden><div class="chk" style="margin:0 auto"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8b64a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
     <h2>Proforma submitted successfully</h2><p style="color:var(--mut)">Your reference ID</p><div class="mid" id="mId"></div><p style="color:var(--mut)">Please keep this ID for future reference.</p>
@@ -212,7 +243,7 @@ textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #cdc3a2;ba
 <section id="success" class="view"><div class="ok c">
   <div class="tk"><div class="a"><div class="chk"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8b64a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
     <h2>Registration successful</h2><p id="thanks"></p><div class="sum" id="sum"></div></div>
-    <div class="b"><small>YOUR TOKEN</small><div class="tok" id="tok">UBGC-0000</div><em>Show this at the entrance. Please save a screenshot.</em></div></div>
+    <div class="b"><small>YOUR TOKEN</small><div class="tok" id="tok">UBGC-0000</div><div class="atk" id="atk" hidden></div><em>Show this at the entrance. Please save a screenshot.</em></div></div>
   <div class="acts"><button class="btn" id="ics">Add to calendar</button><button class="btn line" onclick="window.print()">Print ticket</button><a class="btn line" href="#home">Back to home</a></div>
   <div class="soc"><h3>Stay connected with TUBWA</h3><p>Subscribe and follow us for event updates, worship and Christmas highlights.</p>
     <div class="sl">
@@ -227,7 +258,7 @@ textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #cdc3a2;ba
 const CONFIG={
   startISO:"2026-12-12T10:00:00+05:30",
   date:"12 December 2026", time:"10:00 AM onwards", place:"St Mary's Rehabilitation University",
-  contact:"9949424217-Abhishek",
+  contact:"tubwa.official@gmail.com",
   scriptUrl:"https://script.google.com/macros/s/AKfycby0s37LAxnaqGbAZI2pOzCUhrRuU5vYfEhZPAUpV-0ln3pcQY4-Y6D5FSW1-cSEMPr0nw/exec", /* paste your Google Apps Script Web App URL (ends with /exec) */
   programme:[
     ["10:00 AM","Welcome and prayer","Doors open, registration desk and a warm welcome from the organisers."],
@@ -288,7 +319,8 @@ $('form').addEventListener('submit',async e=>{e.preventDefault();$('note').textC
 function done(d,t,at){$('tok').textContent=t;$('thanks').textContent=d.count>1?`Thank you, ${d.name}. Your registration for ${d.count} attendees is confirmed.`:`Thank you, ${d.name}. Your registration is confirmed.`;
   const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const r=(a,b)=>`<p><span>${a}</span><b>${esc(b)}</b></p>`;
-  $('sum').innerHTML=r('Registered as',d.role)+r('Church',d.church)+r('District',d.city)+(d.count?r('Attendees',d.count):'')+r('Date',CONFIG.date)+r('Time',CONFIG.time)+r('Place',CONFIG.place)+(at&&at.length?'<p style="border:0;padding:18px 0 4px"><strong style="font-family:var(--serif);color:var(--pine);font-size:1.1rem">Attendee tokens</strong></p>'+at.map((k,i)=>r(d.attendees[i].name,k)).join(''):'');
+  $('sum').innerHTML=r('Registered as',d.role)+r('Church',d.church)+r('District',d.city)+(d.count?r('Attendees',d.count):'')+r('Date',CONFIG.date)+r('Time',CONFIG.time)+r('Place',CONFIG.place);
+  const A=$('atk');A.hidden=!(at&&at.length);A.innerHTML=at&&at.length?'<h4>Attendee tokens</h4>'+at.map((k,i)=>`<p><span>${esc(d.attendees[i].name)}</span><b>${k}</b></p>`).join(''):'';
   window.__done=true;location.hash='#success';$('form').reset();$('attList').innerHTML='';$('attSec').hidden=true}
 
 /* add to calendar (.ics) */
@@ -318,18 +350,18 @@ $('mFields').innerHTML=MS.map(([t,fs])=>`<fieldset><legend>${t}</legend><div cla
 $('m_dob').addEventListener('change',()=>{const b=new Date($('m_dob').value);if(isNaN(b))return;const t=new Date();let a=t.getFullYear()-b.getFullYear();if(t<new Date(t.getFullYear(),b.getMonth(),b.getDate()))a--;$('m_age').value=a});
 $('photo').addEventListener('change',()=>{const f=$('photo').files[0];$('pv').hidden=!f;if(f)$('pv').src=URL.createObjectURL(f)});
 const se=(el,m)=>{const e=(el.closest('.g>div')||el.closest('fieldset')).querySelector('.err');e.textContent=m||'';return !m};
-function mValidate(){let ok=true;
-  MF.forEach(([id,l,ty,rq])=>{const el=$('m_'+id),v=el.value.trim();let m='';
+function mValidate(ids,media){let ok=true;
+  MF.forEach(([id,l,ty,rq])=>{if(ids&&!ids.includes(id))return;const el=$('m_'+id),v=el.value.trim();let m='';
     if(rq&&!v)m='This field is required';
     else if(v&&ty==='tel'&&!/^[6-9]\d{9}$/.test(v))m='Enter a valid 10-digit number';
     else if(v&&ty==='e'&&!/^\S+@\S+\.\S+$/.test(v))m='Enter a valid email address';
     else if(v&&ty==='n'&&(v<18||v>99))m='Enter a valid age (18 to 99)';
     if(!se(el,m))ok=false});
-  if(!se($('photo'),$('photo').files[0]?'':'Please attach a photograph'))ok=false;
-  if(!se($('decl'),$('decl').checked?'':'Please accept the declaration to continue'))ok=false;return ok}
+    if(!ids||media){if(!se($('photo'),$('photo').files[0]?'':'Please attach a photograph'))ok=false;
+  if(!se($('decl'),$('decl').checked?'':'Please accept the declaration to continue'))ok=false}return ok}
 function readPhoto(f){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const k=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.82).split(',')[1])};im.onerror=rej;im.src=URL.createObjectURL(f)})}
-$('mForm').addEventListener('submit',async e=>{e.preventDefault();$('mNote').textContent='';
-  if(!mValidate()){$('mNote').textContent='Please fix the highlighted fields.';const f=document.querySelector('#mForm .err:not(:empty)');f&&f.scrollIntoView({block:'center',behavior:'smooth'});return}
+$('mForm').addEventListener('submit',async e=>{e.preventDefault();$('mNote').textContent='';if(cur<ST.length-1){$('mNext').click();return}
+  if(!mValidate()){$('mNote').textContent='Please fix the highlighted fields.';const bad=ST.findIndex(x=>x.f.some(f=>f.querySelector('.err:not(:empty)')));if(bad>-1)go(bad);return}
   const b=$('mSend');b.disabled=true;b.textContent='Submitting...';
   try{const fields={};MF.forEach(([id])=>fields[id]=$('m_'+id).value.trim());
     const photo=await readPhoto($('photo').files[0]);let id;
@@ -338,7 +370,14 @@ $('mForm').addEventListener('submit',async e=>{e.preventDefault();$('mNote').tex
     $('mId').textContent=id;$('mForm').hidden=true;$('mDone').hidden=false;$('mSoc').innerHTML='';const so=document.querySelector('.soc');if(so)$('mSoc').appendChild(so.cloneNode(true));window.scrollTo(0,0)}
   catch(err){$('mNote').textContent='Could not submit. Check your internet connection and try again.'}
   finally{b.disabled=false;b.textContent='Submit'}});
-$('mAgain').onclick=()=>{$('mForm').reset();$('pv').hidden=true;$('mForm').hidden=false;$('mDone').hidden=true;window.scrollTo(0,0)};
+const ST=[...MS.map((x,i)=>({t:x[0],f:[document.querySelectorAll('#mFields fieldset')[i]],ids:x[1].map(k=>k[0])})),{t:'Photograph & Declaration',f:[$('photo').closest('fieldset'),$('decl').closest('fieldset')],ids:[],media:1}];
+let cur=0;
+function go(i){cur=i;document.querySelectorAll('#mForm fieldset').forEach(f=>f.classList.remove('on'));ST[i].f.forEach(f=>f.classList.add('on'));
+  $('pt').textContent='Step '+(i+1)+' of '+ST.length;$('pn').textContent=ST[i].t.replace(' (Optional)','');$('pf').style.width=((i+1)/ST.length*100)+'%';
+  $('mBack').style.visibility=i?'visible':'hidden';$('mNext').hidden=i===ST.length-1;$('mSend').hidden=i!==ST.length-1;window.scrollTo({top:0,behavior:'smooth'})}
+$('mNext').onclick=()=>{if(mValidate(ST[cur].ids,ST[cur].media))go(cur+1)};
+$('mBack').onclick=()=>go(cur-1);go(0);
+$('mAgain').onclick=()=>{$('mForm').reset();go(0);$('pv').hidden=true;$('mForm').hidden=false;$('mDone').hidden=true;window.scrollTo(0,0)};
 /* snow */
 (function(){const c=$('snow'),x=c.getContext('2d');let W,H,f=[];const sz=()=>{W=c.width=innerWidth;H=c.height=innerHeight};sz();addEventListener('resize',sz);
   for(let i=0;i<60;i++)f.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*2.4+.8,s:Math.random()*.7+.3,d:Math.random()*6});
